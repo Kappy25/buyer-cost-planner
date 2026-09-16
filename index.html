@@ -1,0 +1,19 @@
+ const total = Math.max(0, down + costs - earnest - dd - credits);
+
+  document.getElementById("sumDown").textContent = money(down);
+  document.getElementById("sumCosts").textContent = money(costs);
+  document.getElementById("sumEarnest").textContent = "- " + money(earnest);
+  document.getElementById("sumDD").textContent = "- " + money(dd);
+  document.getElementById("sumCredits").textContent = "- " + money(credits);
+  document.getElementById("grandTotal").textContent = money(total);
+}
+
+function resetPlanner() {
+  const fields = document.querySelectorAll("input[type='number']");
+  fields.forEach(field => field.value = "");
+  calculate();
+}
+</script>
+
+</body>
+</html>
