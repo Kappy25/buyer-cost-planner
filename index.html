@@ -1,142 +1,170 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Couch Sisters Realty Buyer Cost Planner</title>
+<title>Couch Sisters Realty Buyer Cost Planner</title>
 
-  <style>
-    * {
-      box-sizing: border-box;
-    }
+<style>
+  * {
+    box-sizing: border-box;
+  }
 
+  body {
+    margin: 0;
+    padding: 12px;
+    font-family: Arial, Helvetica, sans-serif;
+    background: #ffffff;
+    color: #222;
+  }
+
+  .planner {
+    width: 100%;
+    max-width: 1000px;
+    margin: 0 auto;
+    border: 2px solid #17365D;
+    border-radius: 10px;
+    padding: 28px;
+    background: #ffffff;
+  }
+
+  h1 {
+    margin: 0 0 8px;
+    color: #17365D;
+    font-size: 30px;
+    font-weight: 500;
+  }
+
+  .intro {
+    margin: 0 0 25px;
+    font-size: 16px;
+    line-height: 1.5;
+  }
+
+  h2 {
+    color: #17365D;
+    font-size: 21px;
+    margin: 28px 0 16px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid #d5d5d5;
+  }
+
+  .field {
+    margin-bottom: 15px;
+  }
+
+  label {
+    display: block;
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 6px;
+  }
+
+  input {
+    width: 100%;
+    max-width: 430px;
+    padding: 11px;
+    font-size: 16px;
+    border: 1px solid #999;
+    border-radius: 3px;
+  }
+
+  .help {
+    display: block;
+    font-size: 12px;
+    color: #666;
+    margin-top: 4px;
+  }
+
+  .results {
+    margin-top: 30px;
+    background: #f5f7fa;
+    border: 2px solid #17365D;
+    border-radius: 8px;
+    padding: 22px;
+  }
+
+  .result-row {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    padding: 8px 0;
+    border-bottom: 1px solid #ddd;
+  }
+
+  .result-row:last-of-type {
+    border-bottom: 0;
+  }
+
+  .grand-total {
+    margin-top: 18px;
+    padding: 18px;
+    background: #17365D;
+    color: white;
+    border-radius: 6px;
+    text-align: center;
+  }
+
+  .grand-total .label {
+    font-size: 16px;
+    margin-bottom: 5px;
+  }
+
+  .grand-total .amount {
+    font-size: 30px;
+    font-weight: bold;
+  }
+
+  .buttons {
+    margin-top: 20px;
+  }
+
+  button {
+    padding: 11px 20px;
+    border: 0;
+    border-radius: 4px;
+    background: #17365D;
+    color: white;
+    font-size: 15px;
+    cursor: pointer;
+  }
+
+  button:hover {
+    opacity: .9;
+  }
+
+  .disclaimer {
+    margin-top: 25px;
+    padding-top: 15px;
+    border-top: 1px solid #ddd;
+    font-size: 12px;
+    line-height: 1.5;
+    color: #666;
+  }
+
+  @media (max-width: 600px) {
     body {
-      margin: 0;
-      padding: 24px;
-      font-family: Verdana, Arial, sans-serif;
-      background: #ffffff;
-      color: #222222;
+      padding: 5px;
     }
 
     .planner {
-      max-width: 1050px;
-      margin: 0 auto;
-      border: 2px solid #173d6b;
-      border-radius: 8px;
-      padding: 28px;
-      background: #ffffff;
+      padding: 18px;
     }
 
     h1 {
-      margin-top: 0;
-      margin-bottom: 8px;
-      color: #173d6b;
-      font-size: 30px;
-      font-weight: normal;
-    }
-
-    .intro {
-      margin-bottom: 28px;
-      line-height: 1.5;
-    }
-
-    h2 {
-      color: #173d6b;
-      border-bottom: 1px solid #d7d7d7;
-      padding-bottom: 8px;
-      margin-top: 30px;
-      font-size: 20px;
-    }
-
-    .field {
-      margin-bottom: 16px;
-    }
-
-    label {
-      display: block;
-      font-weight: bold;
-      margin-bottom: 6px;
+      font-size: 24px;
     }
 
     input {
-      width: 100%;
-      max-width: 420px;
-      padding: 11px;
-      border: 1px solid #999999;
-      border-radius: 3px;
-      font-size: 16px;
+      max-width: 100%;
     }
 
-    .summary {
-      margin-top: 30px;
-      padding: 20px;
-      background: #f5f7fa;
-      border-left: 5px solid #173d6b;
+    .result-row {
+      font-size: 14px;
     }
-
-    .summary-row {
-      display: flex;
-      justify-content: space-between;
-      gap: 20px;
-      padding: 8px 0;
-      border-bottom: 1px solid #dddddd;
-    }
-
-    .grand-total {
-      margin-top: 14px;
-      padding-top: 14px;
-      font-size: 22px;
-      font-weight: bold;
-      color: #173d6b;
-      border-top: 2px solid #173d6b;
-    }
-
-    button {
-      margin-top: 20px;
-      margin-right: 8px;
-      padding: 11px 20px;
-      border: none;
-      border-radius: 4px;
-      background: #173d6b;
-      color: white;
-      font-size: 15px;
-      cursor: pointer;
-    }
-
-    button:hover {
-      opacity: .9;
-    }
-
-    .reset {
-      background: #666666;
-    }
-
-    .note {
-      margin-top: 25px;
-      font-size: 12px;
-      line-height: 1.5;
-      color: #666666;
-    }
-
-    @media (max-width: 600px) {
-      body {
-        padding: 10px;
-      }
-
-      .planner {
-        padding: 18px;
-      }
-
-      h1 {
-        font-size: 24px;
-      }
-
-      .summary-row {
-        display: block;
-      }
-    }
-  </style>
+  }
+</style>
 </head>
 
 <body>
@@ -145,11 +173,11 @@
 
   <h1>Couch Sisters Realty Buyer Cost Planner</h1>
 
-  <div class="intro">
-    Estimate the funds you may need when purchasing a home in North Carolina.
-    Enter the amounts that apply to your transaction and the planner will
-    calculate your estimated total.
-  </div>
+  <p class="intro">
+    Planning to purchase a home in North Carolina? Enter the estimated
+    amounts below to get a clearer picture of the funds you may need
+    throughout your transaction and at closing.
+  </p>
 
   <h2>Purchase Information</h2>
 
@@ -163,6 +191,21 @@
     <label for="downPayment">Down Payment</label>
     <input type="number" id="downPayment" min="0" step="0.01"
            placeholder="Enter down payment">
+  </div>
+
+  <h2>Deposits & Fees Paid Before Closing</h2>
+
+  <div class="field">
+    <label for="dueDiligence">Due Diligence Fee</label>
+    <input type="number" id="dueDiligence" min="0" step="0.01"
+           placeholder="Enter due diligence fee">
+    <span class="help">Enter the amount paid or expected to be paid.</span>
+  </div>
+
+  <div class="field">
+    <label for="earnestMoney">Earnest Money Deposit</label>
+    <input type="number" id="earnestMoney" min="0" step="0.01"
+           placeholder="Enter earnest money deposit">
   </div>
 
   <h2>Estimated Buyer Costs</h2>
@@ -192,105 +235,128 @@
   </div>
 
   <div class="field">
-    <label for="otherCosts">Other Estimated Costs</label>
+    <label for="prepaids">Prepaid Taxes, Insurance & Escrows</label>
+    <input type="number" id="prepaids" min="0" step="0.01"
+           placeholder="Enter estimated prepaid expenses">
+  </div>
+
+  <div class="field">
+    <label for="hoaCosts">HOA / Community Fees</label>
+    <input type="number" id="hoaCosts" min="0" step="0.01"
+           placeholder="Enter applicable HOA fees">
+  </div>
+
+  <div class="field">
+    <label for="otherCosts">Other Estimated Buyer Costs</label>
     <input type="number" id="otherCosts" min="0" step="0.01"
-           placeholder="Enter other costs">
+           placeholder="Enter other estimated costs">
   </div>
 
-  <h2>Credits & Deposits Already Paid</h2>
+  <h2>Credits</h2>
 
   <div class="field">
-    <label for="earnestMoney">Earnest Money Deposit</label>
-    <input type="number" id="earnestMoney" min="0" step="0.01"
-           placeholder="Enter earnest money deposit">
+    <label for="credits">Seller / Lender Credits</label>
+    <input type="number" id="credits" min="0" step="0.01"
+           placeholder="Enter total estimated credits">
   </div>
 
-  <div class="field">
-    <label for="dueDiligence">Due Diligence Fee</label>
-    <input type="number" id="dueDiligence" min="0" step="0.01"
-           placeholder="Enter due diligence fee">
-  </div>
+  <div class="results">
 
-  <div class="field">
-    <label for="sellerCredits">Seller / Other Credits</label>
-    <input type="number" id="sellerCredits" min="0" step="0.01"
-           placeholder="Enter applicable credits">
-  </div>
+    <h2 style="margin-top:0;">Estimated Summary</h2>
 
-  <button type="button" onclick="calculate()">Calculate Estimated Funds</button>
-
-  <button type="button" class="reset" onclick="resetPlanner()">Reset</button>
-
-  <div class="summary">
-
-    <div class="summary-row">
-      <span>Down Payment</span>
-      <strong id="sumDown">$0.00</strong>
+    <div class="result-row">
+      <strong>Down Payment</strong>
+      <span id="sumDown">$0.00</span>
     </div>
 
-    <div class="summary-row">
-      <span>Estimated Buyer Costs</span>
-      <strong id="sumCosts">$0.00</strong>
+    <div class="result-row">
+      <strong>Estimated Buyer Costs</strong>
+      <span id="sumCosts">$0.00</span>
     </div>
 
-    <div class="summary-row">
-      <span>Less Earnest Money</span>
-      <strong id="sumEarnest">-$0.00</strong>
+    <div class="result-row">
+      <strong>Less Earnest Money Deposit</strong>
+      <span id="sumEarnest">-$0.00</span>
     </div>
 
-    <div class="summary-row">
-      <span>Less Due Diligence Fee</span>
-      <strong id="sumDD">-$0.00</strong>
+    <div class="result-row">
+      <strong>Less Due Diligence Fee</strong>
+      <span id="sumDD">-$0.00</span>
     </div>
 
-    <div class="summary-row">
-      <span>Less Credits</span>
-      <strong id="sumCredits">-$0.00</strong>
+    <div class="result-row">
+      <strong>Less Seller / Lender Credits</strong>
+      <span id="sumCredits">-$0.00</span>
     </div>
 
-    <div class="summary-row grand-total">
-      <span>Estimated Funds Needed</span>
-      <span id="grandTotal">$0.00</span>
+    <div class="grand-total">
+      <div class="label">Estimated Cash Needed to Close</div>
+      <div class="amount" id="grandTotal">$0.00</div>
     </div>
 
   </div>
 
-  <div class="note">
-    This planner is provided for general informational and planning purposes
-    only. Amounts are estimates and are not a substitute for a Loan Estimate,
-    Closing Disclosure, attorney settlement statement, lender instructions,
-    or other official closing documents. Actual costs and credits will vary
-    by transaction.
+  <div class="buttons">
+    <button type="button" onclick="resetPlanner()">Reset Planner</button>
+  </div>
+
+  <div class="disclaimer">
+    <strong>Important:</strong> This planner is provided for general
+    informational and planning purposes only. Actual costs and credits
+    vary by transaction, loan program, property, lender, closing attorney
+    and other circumstances. This planner is not a Loan Estimate,
+    Closing Disclosure, legal advice, tax advice, or a guarantee of
+    funds required for closing. Buyers should consult their lender and
+    closing attorney for final figures.
   </div>
 
 </div>
 
 <script>
-  function getAmount(id) {
-    const value = parseFloat(document.getElementById(id).value);
-    return isNaN(value) ? 0 : value;
+  const ids = [
+    "purchasePrice",
+    "downPayment",
+    "dueDiligence",
+    "earnestMoney",
+    "lenderCosts",
+    "attorneyFees",
+    "inspectionCosts",
+    "appraisal",
+    "prepaids",
+    "hoaCosts",
+    "otherCosts",
+    "credits"
+  ];
+
+  ids.forEach(id => {
+    document.getElementById(id).addEventListener("input", calculate);
+  });
+
+  function value(id) {
+    return parseFloat(document.getElementById(id).value) || 0;
   }
 
-  function money(value) {
-    return value.toLocaleString("en-US", {
+  function money(amount) {
+    return amount.toLocaleString("en-US", {
       style: "currency",
       currency: "USD"
     });
   }
 
   function calculate() {
-    const down = getAmount("downPayment");
+    const down = value("downPayment");
+    const dd = value("dueDiligence");
+    const earnest = value("earnestMoney");
+    const credits = value("credits");
 
     const costs =
-      getAmount("lenderCosts") +
-      getAmount("attorneyFees") +
-      getAmount("inspectionCosts") +
-      getAmount("appraisal") +
-      getAmount("otherCosts");
-
-    const earnest = getAmount("earnestMoney");
-    const dd = getAmount("dueDiligence");
-    const credits = getAmount("sellerCredits");
+      value("lenderCosts") +
+      value("attorneyFees") +
+      value("inspectionCosts") +
+      value("appraisal") +
+      value("prepaids") +
+      value("hoaCosts") +
+      value("otherCosts");
 
     const total = Math.max(
       0,
@@ -299,21 +365,24 @@
 
     document.getElementById("sumDown").textContent = money(down);
     document.getElementById("sumCosts").textContent = money(costs);
-    document.getElementById("sumEarnest").textContent = "- " + money(earnest);
-    document.getElementById("sumDD").textContent = "- " + money(dd);
-    document.getElementById("sumCredits").textContent = "- " + money(credits);
+    document.getElementById("sumEarnest").textContent =
+      "- " + money(earnest);
+    document.getElementById("sumDD").textContent =
+      "- " + money(dd);
+    document.getElementById("sumCredits").textContent =
+      "- " + money(credits);
     document.getElementById("grandTotal").textContent = money(total);
   }
 
   function resetPlanner() {
-    const fields = document.querySelectorAll('input[type="number"]');
-
-    fields.forEach(function(field) {
-      field.value = "";
+    ids.forEach(id => {
+      document.getElementById(id).value = "";
     });
 
     calculate();
   }
+
+  calculate();
 </script>
 
 </body>
